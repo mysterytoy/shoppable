@@ -7,19 +7,19 @@ let package = Package(
   name: "Shoppable",
   products: [
     .library(
-      name: "ProductFetcher",
-      targets: ["ProductFetcher"]
+      name: "Product",
+      targets: ["Product"]
     )
   ],
   dependencies: [],
   targets: [
     .target(
-      name: "ProductFetcher",
+      name: "Product",
       dependencies: []
     ),
     .testTarget(
-      name: "ProductFetcherTests",
-      dependencies: ["ProductFetcher"]
+      name: "ProductTests",
+      dependencies: ["Product"]
     )
   ]
 )

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ProductFetcher"
-               BuildableName = "ProductFetcher"
-               BlueprintName = "ProductFetcher"
+               BlueprintIdentifier = "Product"
+               BuildableName = "Product"
+               BlueprintName = "Product"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ProductFetcherTests"
-               BuildableName = "ProductFetcherTests"
-               BlueprintName = "ProductFetcherTests"
+               BlueprintIdentifier = "ProductTests"
+               BuildableName = "ProductTests"
+               BlueprintName = "ProductTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ProductFetcher"
-            BuildableName = "ProductFetcher"
-            BlueprintName = "ProductFetcher"
+            BlueprintIdentifier = "Product"
+            BuildableName = "Product"
+            BlueprintName = "Product"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
