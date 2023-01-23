@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct Product {
+public struct Product: Identifiable {
   public let id: String
   public let name: String
   public let price: Price

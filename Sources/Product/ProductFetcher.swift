@@ -3,6 +3,10 @@ import Foundation
 
 public struct ProductFetcher {
   public let fetch: () throws -> [Product]
+  
+  public init(fetch: @escaping () throws -> [Product]) {
+    self.fetch = fetch
+  }
 }
 
 extension ProductFetcher {
@@ -17,6 +21,12 @@ extension ProductFetcher {
       }
       
       return try ProductParser.live.parse(productsData)
+    }
+  )
+  
+  public static var stub = Self(
+    fetch: {
+      return Array()
     }
   )
 }
