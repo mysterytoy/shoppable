@@ -8,7 +8,6 @@ public struct AppView: View {
     TabView {
       NavigationView {
         ProductsView(viewModel: viewModel)
-          .navigationBarTitle("Products")
       }
       .tabItem {
         Label("Products", systemImage: "square.grid.2x2")
@@ -16,7 +15,6 @@ public struct AppView: View {
       
       NavigationView {
         BasketView(viewModel: viewModel)
-          .navigationBarTitle("Basket")
       }
       .tabItem {
         Label("Basket", systemImage: "basket")

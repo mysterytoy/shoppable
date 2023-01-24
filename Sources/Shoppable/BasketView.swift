@@ -21,16 +21,19 @@ struct BasketView: View {
         }
       }
     }
+    .navigationTitle("Basket")
   }
 }
 
 struct BasketView_Previews: PreviewProvider {
   static var previews: some View {
-    BasketView(
-      viewModel: AppViewModel(
-        productFetcher: .preview,
-        basket: Product.examples
+    NavigationView {
+      BasketView(
+        viewModel: AppViewModel(
+          productFetcher: .preview,
+          basket: Product.examples
+        )
       )
-    )
+    }
   }
 }

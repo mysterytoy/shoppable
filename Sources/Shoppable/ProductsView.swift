@@ -23,15 +23,18 @@ struct ProductsView: View {
         }
       }
     }
+    .navigationTitle("Products")
   }
 }
 
 struct ProductsView_Previews: PreviewProvider {
   static var previews: some View {
-    ProductsView(
-      viewModel: AppViewModel(
-        productFetcher: .preview
+    NavigationView {
+      ProductsView(
+        viewModel: AppViewModel(
+          productFetcher: .preview
+        )
       )
-    )
+    }
   }
 }
