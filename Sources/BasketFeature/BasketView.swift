@@ -7,18 +7,24 @@ public struct BasketView: View {
   @ObservedObject var viewModel: BasketViewModel
     
   public var body: some View {
-    ZStack {
-      List(Array(viewModel.basket)) { product in
-        ProductRow(product) {
-          Button(action: { withAnimation { viewModel.remove(product) } }) {
-            Image(systemName: "trash.fill")
-              .foregroundColor(.red)
+    Group {
+      if viewModel.basket.isEmpty {
+        EmptyBasketView()
+      } else {
+        ZStack {
+          List(Array(viewModel.basket)) { product in
+            ProductRow(product) {
+              Button(action: { withAnimation { viewModel.remove(product) } }) {
+                Image(systemName: "trash.fill")
+                  .foregroundColor(.red)
+              }
+            }
+          }
+          VStack {
+            Spacer()
+            TotalView(total: viewModel.total)
           }
         }
-      }
-      VStack {
-        Spacer()
-        TotalView(total: viewModel.total)
       }
     }
     .navigationTitle("Basket")
