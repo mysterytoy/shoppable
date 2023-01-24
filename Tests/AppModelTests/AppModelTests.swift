@@ -1,7 +1,7 @@
 
 import Product
 import XCTest
-@testable import Shoppable
+@testable import AppModel
 
 final class AppModelTests: XCTestCase {
   func testAddProductAddsProductToBasket() throws {

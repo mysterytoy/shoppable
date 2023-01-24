@@ -1,4 +1,7 @@
 
+import AppModel
+import BasketFeature
+import ProductsFeature
 import SwiftUI
 
 public struct AppView: View {
@@ -18,9 +21,11 @@ public struct AppView: View {
       }
       
       NavigationView {
-        BasketView(viewModel: BasketViewModel(
-          model: model
-        ))
+        BasketView(
+          viewModel: BasketViewModel(
+            model: model
+          )
+        )
       }
       .tabItem {
         Label("Basket", systemImage: "basket")

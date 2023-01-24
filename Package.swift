@@ -10,28 +10,63 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "Shoppable",
-      targets: ["Shoppable"]
+      name: "AppModel",
+      targets: ["AppModel"]
+    ),
+    .library(
+      name: "BasketFeature",
+      targets: ["BasketFeature"]
     ),
     .library(
       name: "Product",
       targets: ["Product"]
+    ),
+    .library(
+      name: "ProductsFeature",
+      targets: ["ProductsFeature"]
+    ),
+    .library(
+      name: "Shoppable",
+      targets: ["Shoppable"]
     )
   ],
   dependencies: [],
   targets: [
     .target(
-      name: "Shoppable",
+      name: "AppModel",
       dependencies: [
+        "Product"
+      ]
+    ),
+    .target(
+      name: "BasketFeature",
+      dependencies: [
+        "AppModel",
         "Product"
       ]
     ),
     .target(
       name: "Product"
     ),
+    .target(
+      name: "ProductsFeature",
+      dependencies: [
+        "AppModel",
+        "Product"
+      ]
+    ),
+    .target(
+      name: "Shoppable",
+      dependencies: [
+        "AppModel",
+        "BasketFeature",
+        "Product",
+        "ProductsFeature"
+      ]
+    ),
     .testTarget(
-      name: "ShoppableTests",
-      dependencies: ["Shoppable"]
+      name: "AppModelTests",
+      dependencies: ["AppModel"]
     ),
     .testTarget(
       name: "ProductTests",

@@ -3,11 +3,11 @@ import Foundation
 import Product
 
 public class AppModel: ObservableObject {
-  let products: [Product]
+  public let products: [Product]
 
-  @Published var basket: Set<Product>
+  @Published public var basket: Set<Product>
   
-  var total: Float {
+  public var total: Float {
     basket.map(\.price.value)
       .reduce(0.0, +)
   }
@@ -22,15 +22,15 @@ public class AppModel: ObservableObject {
     }
   }
   
-  func add(_ product: Product) {
+  public func add(_ product: Product) {
     self.basket.insert(product)
   }
   
-  func remove(_ product: Product) {
+  public func remove(_ product: Product) {
     self.basket.remove(product)
   }
   
-  func check(_ product: Product) -> Bool {
+  public func check(_ product: Product) -> Bool {
     self.basket.contains(product)
   }
 }

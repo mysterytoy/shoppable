@@ -1,35 +1,12 @@
 
-import Combine
+import AppModel
 import Product
 import SwiftUI
 
-class BasketViewModel: ObservableObject {
-  @Published var basket: Set<Product> = []
-  
-  var model: AppModel
-  var cancellables: Set<AnyCancellable> = []
-  
-  var total: Float {
-    model.total
-  }
-  
-  init(model: AppModel) {
-    self.model = model
-    
-    self.model.$basket
-      .assign(to: \.basket, on: self)
-      .store(in: &cancellables)
-  }
-  
-  func remove(_ product: Product) {
-    model.remove(product)
-  }
-}
-
-struct BasketView: View {
+public struct BasketView: View {
   @ObservedObject var viewModel: BasketViewModel
     
-  var body: some View {
+  public var body: some View {
     ZStack {
       List(Array(viewModel.basket)) { product in
         ProductRow(product) {
@@ -45,6 +22,10 @@ struct BasketView: View {
       }
     }
     .navigationTitle("Basket")
+  }
+  
+  public init(viewModel: BasketViewModel) {
+    self.viewModel = viewModel
   }
 }
 
