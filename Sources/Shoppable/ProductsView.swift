@@ -10,8 +10,13 @@ struct ProductsView: View {
       ForEach(viewModel.products) { product in
         ProductRow(product) {
           Button(action: { viewModel.add(product) }) {
-            Text("Add")
+            Image(
+              systemName: viewModel.check(product)
+              ? "checkmark.circle.fill"
+              : "plus.circle.fill"
+            )
           }
+          .disabled(viewModel.check(product))
         }
       }
     }
