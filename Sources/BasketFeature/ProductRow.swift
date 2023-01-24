@@ -20,7 +20,7 @@ struct ProductRow<Content: View>: View {
       VStack(alignment: .leading) {
         Text(product.name)
           .font(.headline)
-        Text(product.info.description)
+        Text(product.price.description)
           .font(.subheadline)
           .foregroundColor(.secondary)
       }
