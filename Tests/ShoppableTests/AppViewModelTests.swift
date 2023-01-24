@@ -56,4 +56,20 @@ final class AppViewModelTests: XCTestCase {
 
     XCTAssertEqual(viewModel.total, firstProduct.price.value + secondProduct.price.value)
   }
+  
+  func testTotalReducedWhenProductsRemoved() throws {
+    let productToRemove = Product.examples[0]
+    let productToStay = Product.examples[1]
+    
+    let viewModel = AppViewModel(
+      productFetcher: .stub,
+      basket: Product.examples
+    )
+    
+    XCTAssertEqual(viewModel.total, productToRemove.price.value + productToStay.price.value)
+    
+    viewModel.remove(productToRemove)
+    
+    XCTAssertEqual(viewModel.total, productToStay.price.value)
+  }
 }
