@@ -3,9 +3,7 @@ import SwiftUI
 
 struct TotalView: View {
   let total: Float
-  
-  @Environment(\.colorScheme) var colorScheme
-  
+    
   var body: some View {
     VStack {
       Text("Total")
@@ -15,11 +13,7 @@ struct TotalView: View {
         .foregroundColor(.secondary)
     }
     .padding()
-    .background(
-      colorScheme == .dark
-        ? Color.white.opacity(0.2)
-        : Color.white
-    )
+    .background(Color("totalColor"))
     .cornerRadius(10)
     .overlay(
       RoundedRectangle(cornerRadius: 10)
