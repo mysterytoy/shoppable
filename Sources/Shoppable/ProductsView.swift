@@ -9,6 +9,15 @@ struct ProductsView: View {
     List {
       ForEach(viewModel.products) { product in
         HStack {
+          AsyncImage(url: product.imageURL) { image in
+            image.resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 100, height: 100)
+            } placeholder: {
+              ProgressView()
+                .frame(width: 100, height: 100)
+            }
+
           VStack(alignment: .leading) {
             Text(product.name)
               .font(.headline)
