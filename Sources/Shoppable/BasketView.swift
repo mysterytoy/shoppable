@@ -10,7 +10,7 @@ struct BasketView: View {
       List(Array(viewModel.basket)) { product in
         ProductRow(product) {
           Button(action: { withAnimation { viewModel.remove(product) } }) {
-            Text("Remove")
+            Image(systemName: "trash.fill")
               .foregroundColor(.red)
           }
         }
