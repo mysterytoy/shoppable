@@ -4,31 +4,12 @@ import SwiftUI
 
 struct BasketView: View {
   @ObservedObject var viewModel: AppViewModel
-  
-  @Environment(\.colorScheme) var colorScheme
-  
+    
   var body: some View {
     ZStack {
       List(Array(viewModel.basket)) { product in
-        HStack {
-          AsyncImage(url: product.imageURL) { image in
-            image.resizable()
-              .aspectRatio(contentMode: .fill)
-              .frame(width: 100, height: 100)
-            } placeholder: {
-              ProgressView()
-                .frame(width: 100, height: 100)
-            }
-          
-          VStack(alignment: .leading) {
-            Text(product.name)
-              .font(.headline)
-            Text(product.price.description)
-              .font(.subheadline)
-              .foregroundColor(.secondary)
-          }
-          Spacer()
-          Button(action: { viewModel.remove(product) }) {
+        ProductRow(product) {
+          Button(action: { withAnimation { viewModel.remove(product) } }) {
             Text("Remove")
               .foregroundColor(.red)
           }
@@ -36,28 +17,7 @@ struct BasketView: View {
       }
       VStack {
         Spacer()
-        VStack {
-          Text("Total")
-            .font(.headline)
-          Text("\(viewModel.total)")
-            .font(.subheadline)
-            .foregroundColor(.secondary)
-        }
-        .padding()
-        .background(
-          colorScheme == .dark
-            ? Color.white.opacity(0.2)
-            : Color.white
-        )
-        .cornerRadius(10)
-        .overlay(
-          RoundedRectangle(cornerRadius: 10)
-            .stroke(
-              Color.black.opacity(0.1),
-              lineWidth: 1
-            )
-        )
-        .padding()
+        TotalView(total: viewModel.total)
       }
     }
     .navigationTitle("Basket")
