@@ -29,4 +29,39 @@ extension ProductFetcher {
       return Array()
     }
   )
+  
+  public static var preview = Self(
+    fetch: {
+      return [
+        Product(
+          id: "1",
+          name: "Henriksdal",
+          price: .init(currency: "kr", value: 499),
+          info: .chair(material: "wood with cover", color: "white"),
+          imageURL: URL(string: "https://shop.static.ingka.ikea.com/PIAimages/0462849_PE608354_S4.JPG")!
+        ),
+        Product(
+          id: "2",
+          name: "Lidhult",
+          price: .init(currency: "kr", value: 1035),
+          info: .couch(numberOfSeats: 4, color: "beige"),
+          imageURL: URL(string: "https://shop.static.ingka.ikea.com/PIAimages/0667779_PE714073_S4.JPG")!
+        ),
+        Product(
+          id: "5",
+          name: "Odger",
+          price: .init(currency: "kr", value: 695.20),
+          info: .chair(material: "plastic", color: "dark blue"),
+          imageURL: URL(string: "https://shop.static.ingka.ikea.com/PIAimages/0727322_PE735594_S4.JPG")!
+        ),
+        Product(
+          id: "6",
+          name: "Landskrona",
+          price: .init(currency: "kr", value: 14396),
+          info: .couch(numberOfSeats: 5, color: "black"),
+          imageURL: URL(string: "https://shop.static.ingka.ikea.com/PIAimages/0630092_PE694645_S4.JPG")!
+        )
+      ]
+    }
+  )
 }
