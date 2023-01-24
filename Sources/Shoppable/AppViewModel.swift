@@ -25,4 +25,8 @@ public class AppViewModel: ObservableObject {
   func add(_ product: Product) {
     self.basket.insert(product)
   }
+  
+  func remove(_ product: Product) {
+    self.basket.remove(product)
+  }
 }

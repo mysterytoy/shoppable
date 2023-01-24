@@ -13,7 +13,22 @@ final class AppViewModelTests: XCTestCase {
     
     viewModel.add(productToAdd)
     
-    XCTAssert(viewModel.basket.contains(productToAdd))
+    XCTAssertTrue(viewModel.basket.contains(productToAdd))
+  }
+  
+  func testRemoveProductRemovesProductFromBasket() throws {
+    let productToRemove = Product.examples[0]
+    let productToStay = Product.examples[1]
+    
+    let viewModel = AppViewModel(
+      productFetcher: .stub,
+      basket: Product.examples
+    )
+    
+    viewModel.remove(productToRemove)
+    
+    XCTAssertTrue(viewModel.basket.contains(productToStay))
+    XCTAssertFalse(viewModel.basket.contains(productToRemove))
   }
   
   func testTotalCalculatedFromSingleProduct() throws {

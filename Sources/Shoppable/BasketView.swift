@@ -16,7 +16,7 @@ struct BasketView: View {
             .foregroundColor(.secondary)
         }
         Spacer()
-        Button(action: { /* viewModel.remove(product) */ }) {
+        Button(action: { viewModel.remove(product) }) {
           Text("Remove")
         }
       }
