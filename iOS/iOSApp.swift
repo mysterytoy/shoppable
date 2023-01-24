@@ -6,7 +6,7 @@ import Shoppable
 struct iOSApp: App {
   var body: some Scene {
     WindowGroup {
-      ProductsView(
+      AppView(
         viewModel: AppViewModel(
           productFetcher: .live
         )

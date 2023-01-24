@@ -2,10 +2,10 @@
 import Product
 import SwiftUI
 
-public struct ProductsView: View {
+struct ProductsView: View {
   @ObservedObject var viewModel: AppViewModel
   
-  public var body: some View {
+  var body: some View {
     List {
       ForEach(viewModel.products) { product in
         HStack {
@@ -23,10 +23,6 @@ public struct ProductsView: View {
         }
       }
     }
-  }
-  
-  public init(viewModel: AppViewModel) {
-    self.viewModel = viewModel
   }
 }
 
