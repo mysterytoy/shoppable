@@ -3,11 +3,11 @@ import Product
 import XCTest
 @testable import Shoppable
 
-final class AppViewModelTests: XCTestCase {
+final class AppModelTests: XCTestCase {
   func testAddProductAddsProductToBasket() throws {
     let productToAdd = Product.examples[0]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub
     )
     
@@ -20,7 +20,7 @@ final class AppViewModelTests: XCTestCase {
     let productToRemove = Product.examples[0]
     let productToStay = Product.examples[1]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub,
       basket: Product.examples
     )
@@ -34,7 +34,7 @@ final class AppViewModelTests: XCTestCase {
   func testTotalCalculatedFromSingleProduct() throws {
     let productToAdd = Product.examples[0]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub
     )
     
@@ -47,7 +47,7 @@ final class AppViewModelTests: XCTestCase {
     let firstProduct = Product.examples[0]
     let secondProduct = Product.examples[1]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub
     )
     
@@ -61,7 +61,7 @@ final class AppViewModelTests: XCTestCase {
     let productToRemove = Product.examples[0]
     let productToStay = Product.examples[1]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub,
       basket: Product.examples
     )
@@ -76,7 +76,7 @@ final class AppViewModelTests: XCTestCase {
   func testBasketContentsCanBeCheckedExternally_containsProduct() throws {
     let productToCheck = Product.examples[1]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub,
       basket: Product.examples
     )
@@ -87,7 +87,7 @@ final class AppViewModelTests: XCTestCase {
   func testBasketContentsCanBeCheckedExternally_doesNotContainProduct() throws {
     let productToCheck = Product.examples[1]
     
-    let viewModel = AppViewModel(
+    let viewModel = AppModel(
       productFetcher: .stub,
       basket: [Product.examples[0]]
     )

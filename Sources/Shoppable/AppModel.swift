@@ -2,7 +2,7 @@
 import Foundation
 import Product
 
-public class AppViewModel: ObservableObject {
+public class AppModel: ObservableObject {
   let products: [Product]
 
   @Published var basket: Set<Product>

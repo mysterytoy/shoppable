@@ -7,7 +7,7 @@ struct iOSApp: App {
   var body: some Scene {
     WindowGroup {
       AppView(
-        viewModel: AppViewModel(
+        model: AppModel(
           productFetcher: .live
         )
       )

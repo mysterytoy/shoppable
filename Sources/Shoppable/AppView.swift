@@ -2,19 +2,25 @@
 import SwiftUI
 
 public struct AppView: View {
-  let viewModel: AppViewModel
+  let model: AppModel
   
   public var body: some View {
     TabView {
       NavigationView {
-        ProductsView(viewModel: viewModel)
+        ProductsView(
+          viewModel: ProductsViewModel(
+            model: model
+          )
+        )
       }
       .tabItem {
         Label("Products", systemImage: "square.grid.2x2")
       }
       
       NavigationView {
-        BasketView(viewModel: viewModel)
+        BasketView(viewModel: BasketViewModel(
+          model: model
+        ))
       }
       .tabItem {
         Label("Basket", systemImage: "basket")
@@ -22,15 +28,15 @@ public struct AppView: View {
     }
   }
   
-  public init(viewModel: AppViewModel) {
-    self.viewModel = viewModel
+  public init(model: AppModel) {
+    self.model = model
   }
 }
 
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
     AppView(
-      viewModel: AppViewModel(
+      model: AppModel(
         productFetcher: .preview
       )
     )
