@@ -15,34 +15,16 @@ public struct ProductsView: View {
         spacing: spacing
       ) {
         ForEach(viewModel.products) { product in
-          VStack {
-            ZStack(alignment: .bottomTrailing) {
-              AsyncImage(url: product.imageURL) { image in
-                image.resizable()
-                  .aspectRatio(contentMode: .fill)
-              } placeholder: {
-                ProgressView()                  
-              }
-              .frame(width: 150, height: 150)
-              
-              Button(action: { viewModel.add(product) }) {
-                Image(
-                  systemName: viewModel.check(product)
-                  ? "checkmark.circle.fill"
-                  : "plus.circle.fill"
-                )
-                .font(.title)
-              }
-              .disabled(viewModel.check(product))
+          ProductCell(product) {
+            Button(action: { viewModel.add(product) }) {
+              Image(
+                systemName: viewModel.check(product)
+                ? "checkmark.circle.fill"
+                : "plus.circle.fill"
+              )
+              .font(.title)
             }
-            
-            VStack(alignment: .leading) {
-              Text(product.name)
-                .font(.headline)
-              Text(product.info.description)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            }
+            .disabled(viewModel.check(product))
           }
         }
       }
