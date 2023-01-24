@@ -15,7 +15,7 @@ public struct AppView: View {
       }
       
       NavigationView {
-        Text("Basket")
+        BasketView(viewModel: viewModel)
           .navigationBarTitle("Basket")
       }
       .tabItem {

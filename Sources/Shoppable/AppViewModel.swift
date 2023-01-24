@@ -5,16 +5,17 @@ import Product
 public class AppViewModel: ObservableObject {
   let products: [Product]
 
-  var basket = Set<Product>()
+  @Published var basket: Set<Product>
   
   var total: Float {
     basket.map(\.price.value)
       .reduce(0.0, +)
   }
   
-  public init(productFetcher: ProductFetcher) {
+  public init(productFetcher: ProductFetcher, basket: [Product] = Array()) {
     do {
       self.products = try productFetcher.fetch()
+      self.basket = Set(basket)
     }
     catch {
       fatalError("Could not fetch products")

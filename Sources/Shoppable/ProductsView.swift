@@ -17,7 +17,7 @@ struct ProductsView: View {
               .foregroundColor(.secondary)
           }
           Spacer()
-          Button(action: { /* viewModel.add(product) */ }) {
+          Button(action: { viewModel.add(product) }) {
             Text("Add")
           }
         }
