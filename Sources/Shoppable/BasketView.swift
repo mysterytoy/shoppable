@@ -6,8 +6,20 @@ struct BasketView: View {
   @ObservedObject var viewModel: AppViewModel
   
   var body: some View {
-    List(Array(viewModel.basket)) { item in
-      Text(item.name)
+    List(Array(viewModel.basket)) { product in
+      HStack {
+        VStack(alignment: .leading) {
+          Text(product.name)
+            .font(.headline)
+          Text(product.price.description)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+        }
+        Spacer()
+        Button(action: { /* viewModel.remove(product) */ }) {
+          Text("Remove")
+        }
+      }
     }
   }
 }

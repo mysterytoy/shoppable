@@ -18,6 +18,10 @@ extension Product {
   public struct Price: Decodable, Equatable {
     public let currency: String
     public let value: Float
+    
+    public var description: String {
+      "\(value) \(currency)"
+    }
   }
   
   public enum Info: Equatable {
@@ -38,16 +42,16 @@ extension Product {
 extension Product {
   public static let examples = [
     Self(
-      id: "any",
-      name: "any",
-      price: .init(currency: "any", value: 50.0),
+      id: "ny",
+      name: "Any",
+      price: .init(currency: "kr", value: 50.0),
       info: .couch(numberOfSeats: 3, color: "any"),
       imageURL: URL(string: "https://example.com")!
     ),
     Self(
       id: "other",
-      name: "other",
-      price: .init(currency: "other", value: 25.0),
+      name: "Other",
+      price: .init(currency: "kr", value: 25.0),
       info: .chair(material: "other", color: "other"),
       imageURL: URL(string: "https://example.com")!
     )
