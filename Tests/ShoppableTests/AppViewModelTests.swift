@@ -72,4 +72,26 @@ final class AppViewModelTests: XCTestCase {
     
     XCTAssertEqual(viewModel.total, productToStay.price.value)
   }
+  
+  func testBasketContentsCanBeCheckedExternally_containsProduct() throws {
+    let productToCheck = Product.examples[1]
+    
+    let viewModel = AppViewModel(
+      productFetcher: .stub,
+      basket: Product.examples
+    )
+    
+    XCTAssertTrue(viewModel.check(productToCheck))
+  }
+  
+  func testBasketContentsCanBeCheckedExternally_doesNotContainProduct() throws {
+    let productToCheck = Product.examples[1]
+    
+    let viewModel = AppViewModel(
+      productFetcher: .stub,
+      basket: [Product.examples[0]]
+    )
+    
+    XCTAssertFalse(viewModel.check(productToCheck))
+  }
 }

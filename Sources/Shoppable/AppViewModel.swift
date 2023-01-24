@@ -29,4 +29,8 @@ public class AppViewModel: ObservableObject {
   func remove(_ product: Product) {
     self.basket.remove(product)
   }
+  
+  func check(_ product: Product) -> Bool {
+    self.basket.contains(product)
+  }
 }
