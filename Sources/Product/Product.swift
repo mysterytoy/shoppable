@@ -18,6 +18,15 @@ extension Product: Equatable {
   public enum Info: Equatable {
     case couch(numberOfSeats: Int, color: String)
     case chair(material: String, color: String)
+    
+    public var description: String {
+      switch self {
+      case let .couch(numberOfSeats, color):
+        return "Seats \(numberOfSeats), \(color)"
+      case let .chair(material, color):
+        return "\(material.capitalized), \(color)"
+      }
+    }
   }
 }
 
