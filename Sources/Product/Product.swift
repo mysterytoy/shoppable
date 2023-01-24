@@ -20,7 +20,7 @@ extension Product {
     public let value: Float
     
     public var description: String {
-      "\(value) \(currency)"
+      String(format: "%.2f \(currency)", value) 
     }
   }
   

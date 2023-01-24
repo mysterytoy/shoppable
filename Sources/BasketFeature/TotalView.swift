@@ -8,7 +8,8 @@ struct TotalView: View {
     VStack {
       Text("Total")
         .font(.headline)
-      Text("\(total)")
+      
+      Text(String(format: "%.2f", total))
         .font(.subheadline)
         .foregroundColor(.secondary)
     }
