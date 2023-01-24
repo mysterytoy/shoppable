@@ -8,22 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2B8C7560297F2FA400DCC1F5 /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8C755F297F2FA400DCC1F5 /* iOSApp.swift */; };
-		2B8C7562297F2FA400DCC1F5 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8C7561297F2FA400DCC1F5 /* ProductsView.swift */; };
 		2B8C7564297F2FA500DCC1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8C7563297F2FA500DCC1F5 /* Assets.xcassets */; };
 		2B8C7567297F2FA500DCC1F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8C7566297F2FA500DCC1F5 /* Preview Assets.xcassets */; };
-		2B8C756D297F303200DCC1F5 /* Product in Frameworks */ = {isa = PBXBuildFile; productRef = 2B8C756C297F303200DCC1F5 /* Product */; };
 		2B8C7570297F307100DCC1F5 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B8C756F297F307100DCC1F5 /* products.json */; };
-		2B8C7572297F317700DCC1F5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8C7571297F317700DCC1F5 /* AppViewModel.swift */; };
+		2BADEC7D297FDD6000DF55F3 /* Shoppable in Frameworks */ = {isa = PBXBuildFile; productRef = 2BADEC7C297FDD6000DF55F3 /* Shoppable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B8C755D297F2FA400DCC1F5 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8C755F297F2FA400DCC1F5 /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		2B8C7561297F2FA400DCC1F5 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		2B8C7563297F2FA500DCC1F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B8C7566297F2FA500DCC1F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2B8C756F297F307100DCC1F5 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
-		2B8C7571297F317700DCC1F5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B8C756D297F303200DCC1F5 /* Product in Frameworks */,
+				2BADEC7D297FDD6000DF55F3 /* Shoppable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +56,6 @@
 			children = (
 				2B8C756E297F303D00DCC1F5 /* Resources */,
 				2B8C755F297F2FA400DCC1F5 /* iOSApp.swift */,
-				2B8C7561297F2FA400DCC1F5 /* ProductsView.swift */,
-				2B8C7571297F317700DCC1F5 /* AppViewModel.swift */,
 				2B8C7563297F2FA500DCC1F5 /* Assets.xcassets */,
 				2B8C7565297F2FA500DCC1F5 /* Preview Content */,
 			);
@@ -108,7 +102,7 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				2B8C756C297F303200DCC1F5 /* Product */,
+				2BADEC7C297FDD6000DF55F3 /* Shoppable */,
 			);
 			productName = iOS;
 			productReference = 2B8C755D297F2FA400DCC1F5 /* iOS.app */;
@@ -165,9 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B8C7562297F2FA400DCC1F5 /* ProductsView.swift in Sources */,
 				2B8C7560297F2FA400DCC1F5 /* iOSApp.swift in Sources */,
-				2B8C7572297F317700DCC1F5 /* AppViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,9 +362,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2B8C756C297F303200DCC1F5 /* Product */ = {
+		2BADEC7C297FDD6000DF55F3 /* Shoppable */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Product;
+			productName = Shoppable;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

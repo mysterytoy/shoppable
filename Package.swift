@@ -5,7 +5,14 @@ import PackageDescription
 
 let package = Package(
   name: "Shoppable",
+  platforms: [
+    .iOS(.v16)
+  ],
   products: [
+    .library(
+      name: "Shoppable",
+      targets: ["Shoppable"]
+    ),
     .library(
       name: "Product",
       targets: ["Product"]
@@ -14,8 +21,17 @@ let package = Package(
   dependencies: [],
   targets: [
     .target(
-      name: "Product",
-      dependencies: []
+      name: "Shoppable",
+      dependencies: [
+        "Product"
+      ]
+    ),
+    .target(
+      name: "Product"
+    ),
+    .testTarget(
+      name: "ShoppableTests",
+      dependencies: ["Shoppable"]
     ),
     .testTarget(
       name: "ProductTests",
