@@ -1,5 +1,4 @@
 
-import AppModel
 import Product
 import SwiftUI
 
@@ -14,7 +13,7 @@ public struct ProductsView: View {
         columns: [GridItem(.adaptive(minimum: 150), spacing: spacing)],
         spacing: spacing
       ) {
-        ForEach(viewModel.products) { product in
+        ForEach(viewModel.state.products) { product in
           ProductCell(product) {
             Button(action: { viewModel.add(product) }) {
               Image(
@@ -42,11 +41,17 @@ struct ProductsView_Previews: PreviewProvider {
     NavigationView {
       ProductsView(
         viewModel: ProductsViewModel(
-          model: AppModel(
-            productFetcher: .preview
-          )
+          state: ProductsViewState(
+            products: Product.examples,
+            selectedIDs: Set([Product.examples[0].id])
+          ),
+          delegate: PreviewModelDelegate()
         )
       )
     }
+  }
+  
+  private class PreviewModelDelegate: ProductsViewModelDelegate {
+    func add(_ product: Product) {}
   }
 }

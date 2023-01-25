@@ -1,19 +1,17 @@
 
-import AppModel
+import AppState
 import BasketFeature
 import ProductsFeature
 import SwiftUI
 
 public struct AppView: View {
-  let model: AppModel
+  let appRoot: AppRoot
   
   public var body: some View {
     TabView {
       NavigationView {
         ProductsView(
-          viewModel: ProductsViewModel(
-            model: model
-          )
+          viewModel: appRoot.productsViewModel
         )
       }
       .tabItem {
@@ -22,9 +20,7 @@ public struct AppView: View {
       
       NavigationView {
         BasketView(
-          viewModel: BasketViewModel(
-            model: model
-          )
+          viewModel: appRoot.basketViewModel
         )
       }
       .tabItem {
@@ -33,16 +29,18 @@ public struct AppView: View {
     }
   }
   
-  public init(model: AppModel) {
-    self.model = model
+  public init(appRoot: AppRoot) {
+    self.appRoot = appRoot
   }
 }
 
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
     AppView(
-      model: AppModel(
-        productFetcher: .preview
+      appRoot: AppRoot(
+        appState: AppState(
+          productFetcher: .preview
+        )
       )
     )
   }

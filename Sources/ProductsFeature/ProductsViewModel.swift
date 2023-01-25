@@ -1,30 +1,40 @@
 
-import AppModel
 import Combine
 import Product
 
-public class ProductsViewModel: ObservableObject {
-  var products: [Product] {
-    model.products
+public struct ProductsViewState {
+  let products: [Product]
+  var selectedIDs: Set<String>
+  
+  public init(products: [Product], selectedIDs: Set<String>) {
+    self.products = products
+    self.selectedIDs = selectedIDs
   }
-  
-  @Published var basket: Set<Product> = []
-  
-  var model: AppModel
-  var cancellables: Set<AnyCancellable> = []
+}
 
-  public init(model: AppModel) {
-    self.model = model
-    self.model.$basket
-      .assign(to: \.basket, on: self)
-      .store(in: &cancellables)
+public protocol ProductsViewModelDelegate: AnyObject {
+  func add(_ product: Product)
+}
+
+public class ProductsViewModel: ObservableObject {
+  @Published var state: ProductsViewState
+  
+  weak var delegate: ProductsViewModelDelegate?
+
+  public init(state: ProductsViewState, delegate: ProductsViewModelDelegate) {
+    self.state = state
+    self.delegate = delegate
   }
   
   func add(_ product: Product) {
-    model.add(product)
+    delegate?.add(product)
   }
   
   func check(_ product: Product) -> Bool {
-    model.check(product)
+    state.selectedIDs.contains(product.id)
+  }
+  
+  public func update(_ selectedIDs: Set<String>) {
+    state.selectedIDs = selectedIDs
   }
 }

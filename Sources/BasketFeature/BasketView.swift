@@ -1,5 +1,4 @@
 
-import AppModel
 import Product
 import SwiftUI
 
@@ -8,11 +7,11 @@ public struct BasketView: View {
     
   public var body: some View {
     Group {
-      if viewModel.basket.isEmpty {
+      if viewModel.state.basket.isEmpty {
         EmptyBasketView()
       } else {
         ZStack {
-          List(Array(viewModel.basket)) { product in
+          List(Array(viewModel.state.basket)) { product in
             ProductRow(product) {
               Button(action: { withAnimation { viewModel.remove(product) } }) {
                 Image(systemName: "trash.fill")
@@ -40,12 +39,16 @@ struct BasketView_Previews: PreviewProvider {
     NavigationView {
       BasketView(
         viewModel: BasketViewModel(
-          model: AppModel(
-            productFetcher: .preview,
-            basket: Product.examples
-          )
+          state: BasketViewState(
+            basket: Set(Product.examples)
+          ),
+          delegate: PreviewModelDelegate()
         )
       )
     }
+  }
+  
+  private class PreviewModelDelegate: BasketViewModelDelegate {
+    func remove(_ product: Product) {}
   }
 }

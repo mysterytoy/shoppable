@@ -1,16 +1,21 @@
 
+import BasketFeature
 import Foundation
 import Product
+import ProductsFeature
 
-public class AppModel: ObservableObject {
+public class AppState: ProductsViewModelDelegate, BasketViewModelDelegate {
   public let products: [Product]
-
-  @Published public var basket: Set<Product>
   
-  public var total: Float {
-    basket.map(\.price.value)
-      .reduce(0.0, +)
+  public var basket: Set<Product> {
+    didSet {
+      self.observers.forEach { observer in
+        observer(basket)
+      }
+    }
   }
+  
+  var observers: [(Set<Product>) -> Void] = Array()
   
   public init(productFetcher: ProductFetcher, basket: [Product] = Array()) {
     do {
@@ -22,15 +27,15 @@ public class AppModel: ObservableObject {
     }
   }
   
+  public func addObserver(observer: @escaping (Set<Product>) -> Void) {
+    self.observers.append(observer)
+  }
+
   public func add(_ product: Product) {
     self.basket.insert(product)
   }
   
   public func remove(_ product: Product) {
     self.basket.remove(product)
-  }
-  
-  public func check(_ product: Product) -> Bool {
-    self.basket.contains(product)
   }
 }
