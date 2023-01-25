@@ -1,27 +1,40 @@
 
-import AppModel
 import Combine
 import Product
 
-public class BasketViewModel: ObservableObject {
-  @Published var basket: Set<Product> = []
+public struct BasketViewState {
+  var basket: Set<Product>
   
-  var model: AppModel
-  var cancellables: Set<AnyCancellable> = []
+  public init(basket: Set<Product>) {
+    self.basket = basket
+  }
+}
+
+public protocol BasketViewModelDelegate: AnyObject {
+  func remove(_ product: Product)
+}
+
+public class BasketViewModel: ObservableObject {
+  @Published var state: BasketViewState
+
+  weak var delegate: BasketViewModelDelegate?
   
   var total: Float {
-    model.total
+    state.basket
+      .map(\.price.value)
+      .reduce(0, +)
   }
   
-  public init(model: AppModel) {
-    self.model = model
-    
-    self.model.$basket
-      .assign(to: \.basket, on: self)
-      .store(in: &cancellables)
+  public init(state: BasketViewState, delegate: BasketViewModelDelegate) {
+    self.state = state
+    self.delegate = delegate
   }
   
   func remove(_ product: Product) {
-    model.remove(product)
+    delegate?.remove(product)
+  }
+  
+  public func update(_ basket: Set<Product>) {
+    state.basket = basket
   }
 }

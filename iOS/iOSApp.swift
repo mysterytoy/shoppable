@@ -1,5 +1,5 @@
 
-import AppModel
+import AppState
 import SwiftUI
 import Shoppable
 
@@ -8,8 +8,10 @@ struct iOSApp: App {
   var body: some Scene {
     WindowGroup {
       AppView(
-        model: AppModel(
-          productFetcher: .live
+        appRoot: AppRoot(
+          appState: AppState(
+            productFetcher: .live
+          )
         )
       )
     }
