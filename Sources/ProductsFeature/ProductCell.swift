@@ -15,23 +15,26 @@ struct ProductCell<Content: View>: View {
     VStack(alignment: .leading) {
       ZStack(alignment: .bottomTrailing) {
         AsyncImage(url: product.imageURL) { image in
-          image.resizable()
-            .aspectRatio(contentMode: .fill)
+          image
+            .resizable()
+            .scaledToFill()
         } placeholder: {
           ProgressView()
         }
+        .aspectRatio(contentMode: .fit)
         .frame(width: 150, height: 150)
         
         content
       }
+        
+      Text(product.name)
+        .font(.headline)
       
-      VStack(alignment: .leading) {
-        Text(product.name)
-          .font(.headline)
-        Text(product.info.description)
-          .font(.subheadline)
-          .foregroundColor(.secondary)
-      }
+      Text(product.info.description)
+        .font(.subheadline)
+        .foregroundColor(.secondary)
+    
+      Spacer()
     }
   }
 }

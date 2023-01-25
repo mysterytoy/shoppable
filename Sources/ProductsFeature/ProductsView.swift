@@ -33,6 +33,7 @@ public struct ProductsView: View {
           .accessibilityElement(children: .combine)
         }
       }
+      .padding(spacing)
     }
     .navigationTitle("Products")
   }
