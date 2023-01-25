@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BasketFeature"
-               BuildableName = "BasketFeature"
-               BlueprintName = "BasketFeature"
+               BlueprintIdentifier = "AppState"
+               BuildableName = "AppState"
+               BlueprintName = "AppState"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BasketFeature"
-            BuildableName = "BasketFeature"
-            BlueprintName = "BasketFeature"
+            BlueprintIdentifier = "AppState"
+            BuildableName = "AppState"
+            BlueprintName = "AppState"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

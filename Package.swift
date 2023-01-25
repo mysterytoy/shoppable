@@ -66,17 +66,11 @@ let package = Package(
     ),
     .testTarget(
       name: "BasketFeatureTests",
-      dependencies: [
-        "AppState",
-        "BasketFeature"
-      ]
+      dependencies: ["AppState"]
     ),
     .testTarget(
       name: "ProductsFeatureTests",
-      dependencies: [
-        "AppState",
-        "ProductsFeature"
-      ]
+      dependencies: ["AppState"]
     ),
     .testTarget(
       name: "ProductTests",
