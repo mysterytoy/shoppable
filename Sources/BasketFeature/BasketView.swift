@@ -17,11 +17,14 @@ public struct BasketView: View {
                 Image(systemName: "trash.fill")
                   .foregroundColor(.red)
               }
+              .accessibilityValue("Double tap to delete")
             }
+            .accessibilityElement(children: .combine)
           }
           VStack {
             Spacer()
             TotalView(total: viewModel.total)
+              .accessibilityElement(children: .combine)
           }
         }
       }

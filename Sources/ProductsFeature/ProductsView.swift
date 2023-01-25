@@ -23,8 +23,14 @@ public struct ProductsView: View {
               )
               .font(.title)
             }
+            .accessibilityValue(
+              viewModel.check(product)
+              ? "In your basket"
+              : "Double tap to add to your basket"
+            )
             .disabled(viewModel.check(product))
           }
+          .accessibilityElement(children: .combine)
         }
       }
     }
