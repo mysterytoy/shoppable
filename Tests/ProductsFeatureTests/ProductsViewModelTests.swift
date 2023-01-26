@@ -10,7 +10,8 @@ final class ProductsViewModelTests: XCTestCase {
     let productToAdd = Product.examples[0]
 
     let appState = AppState(
-      productFetcher: .stub
+      productFetcher: .stub,
+      dataFetcher: .stub
     )
     
     let viewModel = ProductsViewModel(
@@ -38,6 +39,7 @@ final class ProductsViewModelTests: XCTestCase {
 
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: Product.examples
     )
     
@@ -57,6 +59,7 @@ final class ProductsViewModelTests: XCTestCase {
 
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: [Product.examples[0]]
     )
     

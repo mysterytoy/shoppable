@@ -41,7 +41,8 @@ struct AppView_Previews: PreviewProvider {
     AppView(
       appRoot: AppRoot(
         appState: AppState(
-          productFetcher: .preview
+          productFetcher: .preview,
+          dataFetcher: .stub
         )
       )
     )

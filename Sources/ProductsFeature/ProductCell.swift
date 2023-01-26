@@ -1,28 +1,37 @@
 
 import Product
 import SwiftUI
+import UIKit
 
 struct ProductCell<Content: View>: View {
   let product: Product
+  let image: (Product) -> UIImage?
   let content: Content
   
-  init(_ product: Product, @ViewBuilder _ content: () -> Content) {
+  init(
+    _ product: Product,
+    image: @escaping (Product) -> UIImage?,
+    @ViewBuilder _ content: () -> Content
+  ) {
     self.product = product
     self.content = content()
+    self.image = image
   }
   
   var body: some View {
     VStack(alignment: .leading) {
       ZStack(alignment: .bottomTrailing) {
-        AsyncImage(url: product.imageURL) { image in
-          image
+        if let image = self.image(product) {
+          Image(uiImage: image)
             .resizable()
             .scaledToFill()
-        } placeholder: {
-          ProgressView()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 150, height: 150)
         }
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 150, height: 150)
+        else {
+          ProgressView()
+            .frame(width: 150, height: 150)
+        }
         
         content
       }
@@ -43,7 +52,7 @@ struct ProductCell_Previews: PreviewProvider {
   static var previews: some View {
     ScrollView {
       ForEach(Product.examples) { product in
-        ProductCell(product) {
+        ProductCell(product, image: { _ in nil }) {
           Image(systemName: "circle")
         }
       }

@@ -10,7 +10,8 @@ struct iOSApp: App {
       AppView(
         appRoot: AppRoot(
           appState: AppState(
-            productFetcher: .live
+            productFetcher: .live,
+            dataFetcher: .live
           )
         )
       )

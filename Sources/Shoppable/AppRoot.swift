@@ -34,6 +34,12 @@ public class AppRoot {
     )
     
     self.appState.addObserver(
+      observer: { [weak self] images in
+        self?.productsViewModel.update(images)
+      }
+    )
+    
+    self.appState.addObserver(
       observer: { [weak self] products in
         self?.basketViewModel.update(products)
       }

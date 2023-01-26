@@ -14,7 +14,7 @@ public struct ProductsView: View {
         spacing: spacing
       ) {
         ForEach(viewModel.state.products) { product in
-          ProductCell(product) {
+          ProductCell(product, image: viewModel.image) {
             Button(action: { viewModel.add(product) }) {
               Image(
                 systemName: viewModel.check(product)

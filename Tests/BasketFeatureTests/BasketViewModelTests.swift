@@ -8,7 +8,8 @@ import XCTest
 final class BasketViewModelTests: XCTestCase {
   func testViewModelTotalIsZeroByDefault() throws {
     let appState = AppState(
-      productFetcher: .stub
+      productFetcher: .stub,
+      dataFetcher: .stub
     )
     
     let viewModel = BasketViewModel(
@@ -27,6 +28,7 @@ final class BasketViewModelTests: XCTestCase {
 
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: Product.examples
     )
     
@@ -48,6 +50,7 @@ final class BasketViewModelTests: XCTestCase {
     
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: [productInBasket]
     )
 
@@ -67,6 +70,7 @@ final class BasketViewModelTests: XCTestCase {
 
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: Product.examples
     )
 
@@ -86,6 +90,7 @@ final class BasketViewModelTests: XCTestCase {
 
     let appState = AppState(
       productFetcher: .stub,
+      dataFetcher: .stub,
       basket: Product.examples
     )
     

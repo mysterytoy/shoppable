@@ -15,7 +15,8 @@ final class AppTests: XCTestCase {
           fetch: {
             Product.examples
           }
-        )
+        ),
+        dataFetcher: .stub
       )
     )
     
@@ -28,7 +29,8 @@ final class AppTests: XCTestCase {
 
     let appRoot = AppRoot(
       appState: AppState(
-        productFetcher: .stub
+        productFetcher: .stub,
+        dataFetcher: .stub
       )
     )
     
@@ -45,6 +47,7 @@ final class AppTests: XCTestCase {
     let appRoot = AppRoot(
       appState: AppState(
         productFetcher: .stub,
+        dataFetcher: .stub,
         basket: Product.examples
       )
     )
@@ -68,7 +71,8 @@ final class AppTests: XCTestCase {
           fetch: {
             Product.examples
           }
-        )
+        ),
+        dataFetcher: .stub
       )
     )
     
