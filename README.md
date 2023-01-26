@@ -5,6 +5,8 @@ IKEA Assignment, showcasing an app with a list of products that can be added and
 * [Quick Run](#quick-run)
 * [Project Structure](#project-structure)
 * [Testing](#testing)
+* [Async Image](#async-image)
+* [Accessibility](#accessibility)
 
 ## Quick Run
 
@@ -33,3 +35,13 @@ The application is not designed to be built from the project alone, so please us
 ## Testing
 
 The `Shoppable`, `ProductsFeature`, `BasketFeature` and `Product` libraries all have corresponding unit test suites.  These can be run individually from the test schemes themselves or they can be run all at once from the `iOS` scheme.
+
+## Async Image
+
+The image requests in both the products grid of the `ProductsFeature` and the basket list of the `BasketFeature` are handled automatically by SwiftUI's `AsyncImage` view. This feels like the correct approach for this task because the only requirement is a valud `URL` type and we have one guaranteed after succesfully parsing a `Product`.
+
+However, this means there is no need for any custom network requests in the app, and so to demonstrate my capability there is an `image-fetching` branch which uses async/await to load the images once and supply to them to both features.
+
+## Accessibility
+
+The app has been tested using VoiceOver and both `ProductsFeature` and `BasketFeature` have been adjusted to make this a smoother experience than the default.
