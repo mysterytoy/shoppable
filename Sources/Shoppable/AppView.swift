@@ -14,6 +14,7 @@ public struct AppView: View {
           viewModel: appRoot.productsViewModel
         )
       }
+      .navigationViewStyle(.stack)
       .tabItem {
         Label("Products", systemImage: "square.grid.2x2")
       }
@@ -23,6 +24,7 @@ public struct AppView: View {
           viewModel: appRoot.basketViewModel
         )
       }
+      .navigationViewStyle(.stack)
       .tabItem {
         Label("Basket", systemImage: "basket")
       }
