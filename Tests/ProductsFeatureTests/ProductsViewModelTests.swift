@@ -22,7 +22,7 @@ final class ProductsViewModelTests: XCTestCase {
       delegate: appState
     )
     
-    appState.addObserver(
+    appState.addBasketObserver(
       observer: { products in
         viewModel.update(Set(products.map(\.id)))
       }

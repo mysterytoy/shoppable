@@ -42,11 +42,11 @@ public class AppState: ProductsViewModelDelegate, BasketViewModelDelegate {
     }
   }
   
-  public func addObserver(observer: @escaping (Set<Product>) -> Void) {
+  public func addBasketObserver(observer: @escaping (Set<Product>) -> Void) {
     self.basketObservers.append(observer)
   }
   
-  public func addObserver(observer: @escaping ([String : UIImage?]) -> Void) {
+  public func addImageObserver(observer: @escaping ([String : UIImage?]) -> Void) {
     self.imageObservers.append(observer)
   }
 

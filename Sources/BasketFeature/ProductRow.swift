@@ -4,15 +4,28 @@ import SwiftUI
 
 struct ProductRow<Content: View>: View {
   let product: Product
+  let image: (Product) -> UIImage?
   let content: Content
+  
+  init(
+    _ product: Product,
+    image: @escaping (Product) -> UIImage?,
+    @ViewBuilder _ content: () -> Content
+  ) {
+    self.product = product
+    self.image = image
+    self.content = content()
+  }
   
   var body: some View {
     HStack {
-      AsyncImage(url: product.imageURL) { image in
-        image.resizable()
+      if let image = self.image(product) {
+        Image(uiImage: image)
+          .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 100, height: 100)
-      } placeholder: {
+      }
+      else {
         ProgressView()
           .frame(width: 100, height: 100)
       }
@@ -30,18 +43,13 @@ struct ProductRow<Content: View>: View {
       content
     }
   }
-  
-  init(_ product: Product, @ViewBuilder _ content: () -> Content) {
-    self.product = product
-    self.content = content()
-  }
 }
 
 struct ProductRow_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        ProductRow(Product.examples[0]) {
+        ProductRow(Product.examples[0], image: { _ in nil }) {
           Text("Button")
         }
       }

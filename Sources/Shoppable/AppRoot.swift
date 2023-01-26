@@ -27,21 +27,27 @@ public class AppRoot {
       delegate: appState
     )
     
-    self.appState.addObserver(
+    self.appState.addBasketObserver(
       observer: { [weak self] products in
         self?.productsViewModel.update(Set(products.map(\.id)))
       }
     )
     
-    self.appState.addObserver(
+    self.appState.addImageObserver(
       observer: { [weak self] images in
         self?.productsViewModel.update(images)
       }
     )
     
-    self.appState.addObserver(
+    self.appState.addBasketObserver(
       observer: { [weak self] products in
         self?.basketViewModel.update(products)
+      }
+    )
+    
+    self.appState.addImageObserver(
+      observer: { [weak self] images in
+        self?.basketViewModel.update(images)
       }
     )
   }

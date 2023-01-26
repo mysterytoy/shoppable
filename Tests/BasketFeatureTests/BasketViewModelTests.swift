@@ -101,7 +101,7 @@ final class BasketViewModelTests: XCTestCase {
       delegate: appState
     )
     
-    appState.addObserver(
+    appState.addBasketObserver(
       observer: { products in
         viewModel.update(products)
       }

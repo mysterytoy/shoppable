@@ -12,7 +12,7 @@ public struct BasketView: View {
       } else {
         ZStack {
           List(Array(viewModel.state.basket)) { product in
-            ProductRow(product) {
+            ProductRow(product, image: viewModel.image) {
               Button(action: { withAnimation { viewModel.remove(product) } }) {
                 Image(systemName: "trash.fill")
                   .foregroundColor(.red)
